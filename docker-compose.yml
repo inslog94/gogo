@@ -24,7 +24,7 @@ services:
       - ./src/backend:/src
 
   db:
-    image: postgres:12.2
+    image: postgres:14.8
     ports:
       - "5432:5432" 
     container_name: ps01

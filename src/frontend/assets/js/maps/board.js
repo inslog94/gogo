@@ -4,7 +4,7 @@ import {
   getLoginUserInfoRequest,
   findBoardRequest,
   pinDeleteRequest,
-} from "../request/content.js";
+} from '../request/content.js';
 import {
   $boardAddModal,
   $boardAddModalContent,
@@ -15,8 +15,8 @@ import {
   PIN_SAVE_OVERLAY,
   PIN_SAVE_OVERLAY_CONTENT,
   ACCOUNT,
-} from "./data.js";
-import { setMarkersFromServer, pinSimpleSave } from "./pin.js";
+} from './data.js';
+import { setMarkersFromServer, pinSimpleSave } from './pin.js';
 
 // 타이틀, 태그로 보드 생성
 export async function boardSimpleSave(title, tags) {
@@ -63,7 +63,7 @@ export async function getBoards(keyword) {
 
 // 메인 보드 표시
 export function displayMainBoards(boards) {
-  $mainBoard.textContent = "";
+  $mainBoard.textContent = '';
 
   if (boards.length <= 0) {
     return;
@@ -83,30 +83,30 @@ export function displayMainBoards(boards) {
   let boardSet;
   for (let i = 0; i < randomBoards.length; i++) {
     if (i == 0 || i % 2 === 0) {
-      boardSet = document.createElement("div");
-      boardSet.classList.add("board_set");
+      boardSet = document.createElement('div');
+      boardSet.classList.add('board_set');
     }
 
-    let board = document.createElement("div");
-    let thumnailBox = document.createElement("div");
-    let thumbnail = document.createElement("img");
-    let infoBox = document.createElement("div");
-    let info1 = document.createElement("div");
-    let title = document.createElement("div");
-    let pinBox = document.createElement("div");
-    let pinLogo = document.createElement("img");
-    let pinCount = document.createElement("span");
-    let user = document.createElement("div");
+    let board = document.createElement('div');
+    let thumnailBox = document.createElement('div');
+    let thumbnail = document.createElement('img');
+    let infoBox = document.createElement('div');
+    let info1 = document.createElement('div');
+    let title = document.createElement('div');
+    let pinBox = document.createElement('div');
+    let pinLogo = document.createElement('img');
+    let pinCount = document.createElement('span');
+    let user = document.createElement('div');
 
-    infoBox.classList.add("info");
-    thumnailBox.classList.add("img_box");
-    board.classList.add("board");
+    infoBox.classList.add('info');
+    thumnailBox.classList.add('img_box');
+    board.classList.add('board');
 
-    pinLogo.style.width = "25px";
-    pinLogo.style.height = "25px";
-    pinLogo.alt = "like";
-    pinLogo.style.verticalAlign = "text-top";
-    pinLogo.src = "assets/img/fav.png";
+    pinLogo.style.width = '25px';
+    pinLogo.style.height = '25px';
+    pinLogo.alt = 'like';
+    pinLogo.style.verticalAlign = 'text-top';
+    pinLogo.src = 'assets/img/fav.png';
 
     if (
       randomBoards[i].thumbnail_imgs !== null &&
@@ -124,16 +124,16 @@ export function displayMainBoards(boards) {
         }
       }
     } else {
-      thumbnail.src = "assets/img/favspot.png";
+      thumbnail.src = 'assets/img/favspot.png';
     }
-    thumbnail.alt = "";
-    thumbnail.addEventListener("click", async () => {
+    thumbnail.alt = '';
+    thumbnail.addEventListener('click', async () => {
       // let response = await findBoardRequest(randomBoards[i].id);
       // if (response.status >= 400 && response.status < 600) {
       //     return;
       // }
-      window.localStorage.setItem("selectedPk", randomBoards[i].id);
-      location.href = "./../html/board_detail.html";
+      window.localStorage.setItem('selectedPk', randomBoards[i].id);
+      location.href = 'assets/html/board_detail.html';
     });
 
     title.innerText = randomBoards[i].title;
